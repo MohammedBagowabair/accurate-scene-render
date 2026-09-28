@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header, Footer, WhatsAppButton } from "@/components/site-chrome";
 import { site } from "@/content/site";
+import { assetUrl } from "@/lib/utils";
 
 function NotFoundComponent() {
   return (
@@ -78,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Karla:wght@300;400;500&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: assetUrl("/favicon.ico"), type: "image/x-icon" },
     ],
   }),
   shellComponent: RootShell,

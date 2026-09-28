@@ -1,24 +1,29 @@
-# Exact View
+# Exact View / Mukalla Design
 
-Implement exactly the screenshot and nothing else
+Interior design studio site built with TanStack Start (Vite + React). Deployed to GitHub Pages.
 
-This project was built with [Lovable](https://lovable.dev).
+**Live site:** https://mohammedbagowabair.github.io/accurate-scene-render/
 
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/a75ffcb9-a8d5-4892-9948-c0aaf49b79d4).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+This project was built with [Lovable](https://lovable.dev). Continue in the [Lovable editor](https://lovable.dev/projects/a75ffcb9-a8d5-4892-9948-c0aaf49b79d4).
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+git clone https://github.com/MohammedBagowabair/accurate-scene-render.git
+cd accurate-scene-render
+npm install
 npm run dev
 ```
+
+## Production build (GitHub Pages)
+
+```sh
+GITHUB_PAGES=true npm run build
+# Static files are in .output/public
+```
+
+GitHub Actions deploys on every push to `main` (see `.github/workflows/deploy-github-pages.yml`).
+
+## Content updates
+
+See [UPDATING.md](./UPDATING.md) for editing projects, studio details, and contact form settings.

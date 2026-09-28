@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { site } from "@/content/site";
+import { assetUrl } from "@/lib/utils";
 
 const description =
   "Residential interior design, commercial interiors and design consultation from Mukalla Design — full-service interiors from concept to styling.";
@@ -30,7 +31,7 @@ const services = [
       "Material, finish and lighting schemes",
       "Furniture procurement and final styling",
     ],
-    image: "/images/project-villa.jpg",
+    image: assetUrl("/images/project-villa.jpg"),
   },
   {
     number: "II",
@@ -42,7 +43,7 @@ const services = [
       "Custom furniture and fit-out design",
       "Site supervision through handover",
     ],
-    image: "/images/project-office.jpg",
+    image: assetUrl("/images/project-office.jpg"),
   },
   {
     number: "III",
@@ -54,7 +55,7 @@ const services = [
       "Layout review and furniture planning",
       "Written recommendations and sourcing list",
     ],
-    image: "/images/project-restaurant.jpg",
+    image: assetUrl("/images/project-restaurant.jpg"),
   },
 ];
 

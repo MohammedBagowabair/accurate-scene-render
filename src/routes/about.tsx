@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { site } from "@/content/site";
+import { assetUrl } from "@/lib/utils";
 
 const description =
   "The story behind Mukalla Design — a small interior design studio working in restrained materials, natural light and slow, considered detail.";
@@ -70,7 +71,7 @@ function About() {
 
       <section>
         <img
-          src="/images/studio.jpg"
+          src={assetUrl("/images/studio.jpg")}
           alt="Designer arranging limestone, olive linen and oak material samples on a plaster table"
           loading="lazy"
           width={1408}

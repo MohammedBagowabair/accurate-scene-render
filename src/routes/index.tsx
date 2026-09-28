@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { projects } from "@/content/projects";
 import { site } from "@/content/site";
+import { assetUrl } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,7 +26,7 @@ function Home() {
       {/* Hero */}
       <section className="relative h-[92vh] min-h-[560px] w-full overflow-hidden">
         <img
-          src="/images/hero.jpg"
+          src={assetUrl("/images/hero.jpg")}
           alt="Sunlit living room with olive linen sofa, travertine table and arched window"
           width={1920}
           height={1200}
