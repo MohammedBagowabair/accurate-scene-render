@@ -9,11 +9,11 @@ export const site = {
     "Mukalla Design is an interior design studio creating calm, enduring residential and commercial interiors in warm, restrained materials.",
 
   /* WhatsApp number in international format, digits only (no +, no spaces). */
-  whatsappNumber: "9670000000",
+  whatsappNumber: "967783964784",
   whatsappMessage: "Hello Mukalla Design, I would like to discuss a project.",
 
-  email: "studio@mukalladesign.com",
-  phone: "+967 000 0000",
+  email: "mr.bagowabair@gmail.com",
+  phone: "+967 783 964 784",
   address: "Al Mukalla, Hadhramaut, Yemen",
   hours: "Sunday – Thursday, 9am – 6pm",
 
