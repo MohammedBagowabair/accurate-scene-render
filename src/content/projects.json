@@ -1,0 +1,70 @@
+[
+  {
+    "slug": "hadhrami-courtyard-villa",
+    "title": "Hadhrami Courtyard Villa",
+    "category": "Residential",
+    "location": "Al Mukalla",
+    "year": "2025",
+    "cover": "/images/project-villa.jpg",
+    "excerpt": "A family villa organised around light, shade and a quiet central courtyard.",
+    "intro": "A private residence reimagined around the rhythm of the day — cool plastered rooms for the afternoon, open terraces for the evening sea breeze.",
+    "scope": ["Full interior architecture", "Joinery design", "Furniture & styling"],
+    "story": [
+      "The house was stripped back to its structure so daylight could move freely through it again. Openings were widened toward the courtyard, and heavy partitions gave way to deep thresholds that frame each view.",
+      "Materials were kept few and honest: hand-troweled lime plaster, warm travertine underfoot, smoked oak joinery and olive linen. Nothing shines; everything softens with use.",
+      "The result is a home that feels unhurried — restrained in colour, generous in space, and quietly tied to the landscape it sits in."
+    ],
+    "gallery": ["/images/project-villa.jpg", "/images/hero.jpg"]
+  },
+  {
+    "slug": "atelier-creative-office",
+    "title": "Atelier Creative Office",
+    "category": "Commercial",
+    "location": "Al Mukalla",
+    "year": "2025",
+    "cover": "/images/project-office.jpg",
+    "excerpt": "A workplace with the composure of a private residence.",
+    "intro": "Offices for a creative practice, designed as a sequence of calm rooms rather than an open floor.",
+    "scope": ["Space planning", "Bespoke reception joinery", "Lighting design"],
+    "story": [
+      "A deep olive plaster wall anchors the arrival, holding the brand in brushed brass and little else. Behind it, the plan loosens into softer, lighter rooms for focus and conversation.",
+      "Warm oak, limestone flooring and low pools of light replace the usual office glare, so the space reads as hospitality rather than corporate.",
+      "Every surface was chosen to age well under daily use — the practice's second client is always itself."
+    ],
+    "gallery": ["/images/project-office.jpg", "/images/studio.jpg"]
+  },
+  {
+    "slug": "mirage-dining-room",
+    "title": "Mirage Dining Room",
+    "category": "Hospitality",
+    "location": "Aden",
+    "year": "2024",
+    "cover": "/images/project-restaurant.jpg",
+    "excerpt": "An intimate dining room lit for long evenings.",
+    "intro": "A thirty-cover restaurant where light does the decorating: warm, low and layered from dusk onward.",
+    "scope": ["Concept & interior design", "Custom banquettes", "Art curation"],
+    "story": [
+      "Niches carved into limewashed walls hold sculpture and branches, each washed with a single concealed light so the room glows from its edges.",
+      "Charcoal velvet banquettes and crisp linen create the contrast the food needs, while sculptural plaster pendants keep the ceiling quiet.",
+      "The dining room was tuned acoustically as carefully as visually — soft enough for conversation at every table."
+    ],
+    "gallery": ["/images/project-restaurant.jpg"]
+  },
+  {
+    "slug": "coastal-penthouse",
+    "title": "Coastal Penthouse",
+    "category": "Residential",
+    "location": "Dubai",
+    "year": "2024",
+    "cover": "/images/project-penthouse.jpg",
+    "excerpt": "Charcoal interiors framing an uninterrupted skyline.",
+    "intro": "A penthouse designed for dusk — dark, enveloping surfaces that let the view take the light.",
+    "scope": ["Interior design", "Marble & stone selection", "Art & furniture procurement"],
+    "story": [
+      "Walls were taken to a deep charcoal so the windows read as the only source of brightness in the room.",
+      "Soft bouclé seating and a single sculptural marble table keep the plan sparse, leaving circulation open to the glazing.",
+      "Warmth arrives through texture rather than colour: wool, bouclé, aged bronze and the grain of dark timber."
+    ],
+    "gallery": ["/images/project-penthouse.jpg"]
+  }
+]
