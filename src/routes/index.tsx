@@ -23,27 +23,28 @@ function Home() {
 
   return (
     <>
-      {/* Hero */}
+      {/* Hero — brand first, one headline, one line, CTAs, full-bleed image */}
       <section className="relative h-[92vh] min-h-[560px] w-full overflow-hidden">
         <img
           src={assetUrl("/images/hero.jpg")}
           alt="Sunlit living room with olive linen sofa, travertine table and arched window"
           width={1920}
           height={1200}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="hero-media absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-charcoal/35" />
-        <div className="shell relative flex h-full flex-col justify-end pb-20">
-          <p className="eyebrow fade-up text-background/80">Al Mukalla · Since 2014</p>
-          <h1 className="display-xl fade-up mt-6 max-w-3xl text-background">
-            Interiors that hold
-            <br />
-            their quiet.
-          </h1>
-          <p className="fade-up mt-8 max-w-md text-background/85">
-            An interior design studio working in warm stone, soft linen and long light.
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/25 to-charcoal/10" />
+        <div className="shell relative flex h-full flex-col justify-end pb-16 md:pb-20">
+          <p className="fade-up font-serif text-3xl tracking-[0.22em] uppercase text-background md:text-5xl md:tracking-[0.28em]">
+            Mukalla
           </p>
-          <div className="fade-up mt-10 flex flex-wrap gap-8">
+          <p className="fade-up-delay-1 eyebrow mt-3 text-background/75">Design Studio · Al Mukalla</p>
+          <h1 className="fade-up-delay-2 display-lg mt-8 max-w-2xl text-background md:mt-10">
+            Interiors that hold their quiet.
+          </h1>
+          <p className="fade-up-delay-3 mt-5 max-w-md text-background/85 md:mt-6">
+            Warm stone, soft linen and long light — rooms made to settle in.
+          </p>
+          <div className="fade-up-delay-3 mt-8 flex flex-wrap gap-8 md:mt-10">
             <Link to="/portfolio" className="eyebrow link-quiet text-background">
               View projects
             </Link>
@@ -54,7 +55,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Poetic intro */}
       <section className="section-y">
         <div className="shell grid gap-12 md:grid-cols-12">
           <p className="eyebrow md:col-span-3">The Studio</p>
@@ -78,7 +78,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Featured projects */}
       <section className="section-y border-t border-border/60">
         <div className="shell">
           <div className="flex flex-wrap items-end justify-between gap-6">
@@ -89,12 +88,12 @@ function Home() {
           </div>
 
           <div className="mt-16 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.map((project, i) => (
+            {featured.map((project) => (
               <Link
                 key={project.slug}
                 to="/portfolio/$slug"
                 params={{ slug: project.slug }}
-                className={`group block ${i === 0 ? "sm:col-span-2 lg:col-span-1" : ""}`}
+                className="group block"
               >
                 <div className="image-hover bg-muted">
                   <img
@@ -117,7 +116,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Quiet CTA */}
       <section className="section-y bg-olive text-olive-foreground">
         <div className="shell text-center">
           <p className="eyebrow text-olive-foreground/70">Commissions</p>

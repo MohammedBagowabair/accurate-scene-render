@@ -22,7 +22,7 @@ export const Route = createFileRoute("/services")({
 
 const services = [
   {
-    number: "I",
+    number: "01",
     title: "Residential",
     lead: "Whole homes, apartments and single rooms designed around the way you actually live.",
     items: [
@@ -34,7 +34,7 @@ const services = [
     image: assetUrl("/images/project-villa.jpg"),
   },
   {
-    number: "II",
+    number: "02",
     title: "Commercial",
     lead: "Workplaces, retail and intimate hospitality interiors with the composure of a private residence.",
     items: [
@@ -46,7 +46,7 @@ const services = [
     image: assetUrl("/images/project-office.jpg"),
   },
   {
-    number: "III",
+    number: "03",
     title: "Consultation",
     lead: "A focused engagement for clients who want direction rather than a full commission.",
     items: [

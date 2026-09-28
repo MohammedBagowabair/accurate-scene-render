@@ -17,19 +17,18 @@ export const site = {
   address: "Al Mukalla, Hadhramaut, Yemen",
   hours: "Sunday – Thursday, 9am – 6pm",
 
-  /* Replace with your Formspree form ID: https://formspree.io */
-  formspreeId: "your-form-id",
+  /* Optional: Formspree form ID. Leave empty to send enquiries via email. */
+  formspreeId: "",
 
   /* Google Maps embed URL (Google Maps → Share → Embed a map → copy src) */
   mapEmbedUrl:
     "https://www.google.com/maps?q=Mukalla,Hadhramaut,Yemen&output=embed",
 
-  socials: [
-    { label: "Instagram", href: "https://instagram.com/" },
-    { label: "Pinterest", href: "https://pinterest.com/" },
-    { label: "LinkedIn", href: "https://linkedin.com/" },
-  ],
+  /* Only include socials with real profile URLs. Empty = section hidden. */
+  socials: [] as ReadonlyArray<{ label: string; href: string }>,
 } as const;
+
+export const phoneHref = `tel:+${site.whatsappNumber}`;
 
 export const whatsappLink = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(
   site.whatsappMessage,

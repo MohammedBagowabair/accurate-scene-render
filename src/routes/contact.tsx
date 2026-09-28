@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { site, whatsappLink } from "@/content/site";
+import { type FormEvent, useState } from "react";
+import { site, whatsappLink, phoneHref } from "@/content/site";
 
 const description =
   "Contact Mukalla Design — enquire about residential, commercial or consultation interior design work. Studio in Al Mukalla, Hadhramaut.";
@@ -20,9 +21,32 @@ export const Route = createFileRoute("/contact")({
 });
 
 const fieldClass =
-  "w-full border-0 border-b border-border bg-transparent px-0 py-3 text-base text-foreground placeholder:text-muted-foreground/70 focus:border-olive focus:outline-none";
+  "w-full appearance-none rounded-none border-0 border-b border-border bg-transparent px-0 py-3 text-base text-foreground placeholder:text-muted-foreground/70 focus:border-olive focus:outline-none";
 
 function Contact() {
+  const [status, setStatus] = useState<"idle" | "ready">("idle");
+  const useFormspree = Boolean(site.formspreeId);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    if (useFormspree) return;
+
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const service = String(data.get("service") || "").trim();
+    const message = String(data.get("message") || "").trim();
+
+    const subject = encodeURIComponent(`Project enquiry — ${service} — ${name}`);
+    const body = encodeURIComponent(
+      [`Name: ${name}`, `Email: ${email}`, `Project type: ${service}`, "", message].join("\n"),
+    );
+
+    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
+    setStatus("ready");
+  }
+
   return (
     <>
       <section className="section-y">
@@ -53,6 +77,14 @@ function Contact() {
                 </dd>
               </div>
               <div>
+                <dt className="eyebrow">Phone</dt>
+                <dd className="mt-1">
+                  <a href={phoneHref} className="link-quiet">
+                    {site.phone}
+                  </a>
+                </dd>
+              </div>
+              <div>
                 <dt className="eyebrow">WhatsApp</dt>
                 <dd className="mt-1">
                   <a
@@ -65,30 +97,32 @@ function Contact() {
                   </a>
                 </dd>
               </div>
-              <div>
-                <dt className="eyebrow">Follow</dt>
-                <dd className="mt-1 flex flex-wrap gap-5">
-                  {site.socials.map((s) => (
-                    <a
-                      key={s.label}
-                      href={s.href}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="link-quiet"
-                    >
-                      {s.label}
-                    </a>
-                  ))}
-                </dd>
-              </div>
+              {site.socials.length > 0 && (
+                <div>
+                  <dt className="eyebrow">Follow</dt>
+                  <dd className="mt-1 flex flex-wrap gap-5">
+                    {site.socials.map((s) => (
+                      <a
+                        key={s.label}
+                        href={s.href}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="link-quiet"
+                      >
+                        {s.label}
+                      </a>
+                    ))}
+                  </dd>
+                </div>
+              )}
             </dl>
           </div>
 
-          {/* Formspree — no backend needed. Replace formspreeId in src/content/site.ts */}
           <div className="md:col-span-6 md:col-start-7">
             <form
-              action={`https://formspree.io/f/${site.formspreeId}`}
-              method="POST"
+              action={useFormspree ? `https://formspree.io/f/${site.formspreeId}` : undefined}
+              method={useFormspree ? "POST" : undefined}
+              onSubmit={handleSubmit}
               className="space-y-8"
             >
               <div>
@@ -123,11 +157,24 @@ function Contact() {
                 <label htmlFor="service" className="eyebrow">
                   Type of project
                 </label>
-                <select id="service" name="service" className={fieldClass} defaultValue="Residential">
-                  <option>Residential</option>
-                  <option>Commercial</option>
-                  <option>Consultation</option>
-                </select>
+                <div className="relative">
+                  <select
+                    id="service"
+                    name="service"
+                    className={`${fieldClass} pr-8`}
+                    defaultValue="Residential"
+                  >
+                    <option>Residential</option>
+                    <option>Commercial</option>
+                    <option>Consultation</option>
+                  </select>
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute top-1/2 right-0 -translate-y-1/2 text-muted-foreground"
+                  >
+                    ▾
+                  </span>
+                </div>
               </div>
               <div>
                 <label htmlFor="message" className="eyebrow">
@@ -148,6 +195,11 @@ function Contact() {
               >
                 Send enquiry
               </button>
+              {status === "ready" && (
+                <p className="prose-editorial text-sm">
+                  Your email app should open with the enquiry ready to send to {site.email}.
+                </p>
+              )}
             </form>
           </div>
         </div>

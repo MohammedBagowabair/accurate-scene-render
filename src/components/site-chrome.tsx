@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { site, whatsappLink } from "@/content/site";
+import { site, whatsappLink, phoneHref } from "@/content/site";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -17,7 +17,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="shell flex h-20 items-center justify-between">
         <Link to="/" className="group" onClick={() => setOpen(false)}>
-          <span className="block font-serif text-xl tracking-[0.18em] uppercase">
+          <span className="block font-serif text-xl tracking-[0.18em] uppercase transition-opacity duration-300 group-hover:opacity-70">
             Mukalla
           </span>
           <span className="eyebrow block leading-none">Design Studio</span>
@@ -28,8 +28,8 @@ export function Header() {
             <Link
               key={item.to}
               to={item.to}
-              className="eyebrow link-quiet hover:text-foreground"
-              activeProps={{ className: "text-foreground" }}
+              className="nav-link eyebrow hover:text-foreground"
+              activeProps={{ className: "nav-link eyebrow text-foreground is-active" }}
               activeOptions={{ exact: item.to === "/" }}
             >
               {item.label}
@@ -54,7 +54,7 @@ export function Header() {
       </div>
 
       {open && (
-        <nav className="border-t border-border/60 bg-background md:hidden">
+        <nav className="animate-menu border-t border-border/60 bg-background md:hidden">
           <div className="shell flex flex-col py-4">
             {nav.map((item) => (
               <Link
@@ -66,6 +66,12 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            <a href={phoneHref} className="eyebrow mt-6 text-foreground">
+              {site.phone}
+            </a>
+            <a href={`mailto:${site.email}`} className="eyebrow mt-3 text-foreground">
+              {site.email}
+            </a>
           </div>
         </nav>
       )}
@@ -75,11 +81,13 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/60 bg-secondary/40">
+    <footer className="border-t border-border/60 bg-secondary/40 pb-24 md:pb-8">
       <div className="shell grid gap-12 py-16 md:grid-cols-3">
         <div>
-          <p className="font-serif text-2xl">{site.name}</p>
-          <p className="prose-editorial mt-3 max-w-xs text-sm">{site.tagline} — calm, enduring interiors for homes and considered commercial spaces.</p>
+          <p className="font-serif text-2xl tracking-[0.08em] uppercase">{site.name}</p>
+          <p className="prose-editorial mt-3 max-w-xs text-sm">
+            {site.tagline} — calm, enduring interiors for homes and considered commercial spaces.
+          </p>
         </div>
 
         <div className="space-y-2 text-sm text-muted-foreground">
@@ -89,13 +97,22 @@ export function Footer() {
           <a href={`mailto:${site.email}`} className="link-quiet block hover:text-foreground">
             {site.email}
           </a>
+          <a href={phoneHref} className="link-quiet block hover:text-foreground">
+            {site.phone}
+          </a>
           <a href={whatsappLink} className="link-quiet block hover:text-foreground">
             WhatsApp
           </a>
         </div>
 
         <div className="space-y-2 text-sm text-muted-foreground">
-          <p className="eyebrow mb-4">Follow</p>
+          <p className="eyebrow mb-4">Enquire</p>
+          <Link to="/contact" className="link-quiet block hover:text-foreground">
+            Send a project enquiry
+          </Link>
+          <Link to="/portfolio" className="link-quiet block hover:text-foreground">
+            View selected work
+          </Link>
           {site.socials.map((s) => (
             <a
               key={s.label}
